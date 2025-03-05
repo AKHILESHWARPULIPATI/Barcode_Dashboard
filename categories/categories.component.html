@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="header">
+     <div class="info">
+        <p routerLink="/home">OverView /</p><span>Categories</span>
+     </div>
+    <div class="search">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search categories or subcategories..." class="search-box" />
+    </div>
+    </div>
+    <div class="grid">
+      <div class="card" *ngFor="let category of filteredCategories">
+        <div class="card-header">
+          <span class="badge">{{ category.code }}</span>
+          <strong>{{ category.name }}</strong>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li *ngFor="let subcategory of category.subcategories">
+              <span [innerHTML]="highlightMatch(subcategory)"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>

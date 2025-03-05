@@ -1,0 +1,141 @@
+<div class="main">
+  <div class="header">
+      <p routerLink="/home" >OverView </p> <span>|</span>
+      <p>Products  </p> <span>|</span>
+      <p>Add Products</p>
+  </div>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <!-- Product Specification -->
+    <div class="form-section">
+     <div class="form-title">
+       <h3>Product Specification</h3>
+     </div>
+     <div class="form-group-container">
+       <div class="form-group">
+         <label for="name">Product Name</label>
+         <input type="text" id="name" formControlName="name" required>
+       </div>
+  
+       <div class="form-group">
+         <label for="machineId">Machine ID</label>
+         <input type="text" id="machineId" formControlName="machineId" readonly>
+       </div>
+  
+       <div class="form-group">
+         <label for="shortDescription">Short Description</label>
+         <textarea id="shortDescription" formControlName="shortDescription" required></textarea>
+       </div>
+  
+       <div class="form-group">
+         <label for="longDescription">Long Description</label>
+         <textarea id="longDescription" formControlName="longDescription" required></textarea>
+       </div>
+  
+       <div class="form-group">
+         <label for="category">Category Type</label>
+         <select id="category" formControlName="category" required>
+           <option value="" disabled>Select a category</option>
+           <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+         </select>
+       </div>
+     </div>
+   </div>
+  
+   <!-- Product Stock -->
+   <div class="form-section">
+     <div class="form-title">
+       <h3>Product Stock</h3>
+     </div>
+     <div class="form-group-container">
+       <div class="form-group">
+         <label for="price">Price</label>
+         <input type="number" id="price" formControlName="price" required>
+       </div>
+  
+       <div class="form-group">
+         <label for="stock">In Stock</label>
+         <select id="stock" formControlName="stock" required>
+           <option value="" disabled>Select stock level</option>
+           <option *ngFor="let stock of stockOptions" [value]="stock">{{ stock }}</option>
+         </select>
+       </div>
+     </div>
+   </div>
+   <!-- <button (click)="resetAndClearProducts()">Reset & Clear All</button> -->
+   <!-- Product Material -->
+   <div class="form-section">
+     <div class="form-title">
+       <h3>Product Material</h3>
+     </div>
+     <div class="form-group-container">
+       <div class="form-group">
+         <label for="material">Material Type</label>
+         <select id="material" formControlName="material" required>
+           <option value="" disabled>Select material</option>
+           <option *ngFor="let mat of materials" [value]="mat">{{ mat }}</option>
+         </select>
+       </div>
+  
+       <div class="form-group">
+         <label for="color">Color</label>
+         <input type="color" id="color" formControlName="color" required>
+       </div>
+  
+       <div class="form-group">
+         <label for="durability">Durability</label>
+         <select id="durability" formControlName="durability" required>
+           <option value="" disabled>Select durability</option>
+           <option *ngFor="let durability of durabilityOptions" [value]="durability">{{ durability }}</option>
+         </select>
+       </div>
+     </div>
+   </div>
+  
+   <!-- Image Upload Section -->
+   <div class="form-section">
+     <div class="form-title">
+       <h3>Upload Product Images (Max: 5)</h3>
+     </div>
+     <div class="form-group">
+       <input type="file" (change)="onFileSelected($event)" multiple accept="image/*">
+     </div>
+     <div class="image-preview">
+       <div *ngFor="let img of imagePreviews; let i = index" class="image-container">
+         <img [src]="img" alt="Product Image">
+         <i class="bx bx-trash" (click)="removeImage(i)"></i>
+       </div>
+     </div>
+   </div>
+  
+   <!-- Dynamic Table Section -->
+   <div class="form-section">
+     <div class="form-title">
+       <h3>Additional Features</h3>
+     </div>
+     <table class="spec-table" formArrayName="specifications">
+       <thead>
+         <tr>
+           <th>S.No</th>
+           <th>Key</th>
+           <th>Value</th>
+           <th>Action</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let row of specifications.controls; let i = index" [formGroup]="getFormGroup(i)">
+           <td>{{ i + 1 }}</td>
+           <td><input type="text" formControlName="key"></td>
+           <td><input type="text" formControlName="value"></td>
+           <td>
+             <i class="bx bx-plus-circle" (click)="addRow()"></i>
+             <i *ngIf="specifications.length > 1" class="bx bx-trash" (click)="removeRow(i)"></i>
+           </td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+  
+   <button type="submit">Submit</button>
+  </form>
+  
+</div>

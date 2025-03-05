@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>My Profile</h2>
+    <div class="card">
+      <div class="profile-img">
+        <img [src]="userImage" alt="User Image">
+        <label class="edit-icon" title="edit">
+          <i class='bx bx-edit'></i>
+          <input type="file" (change)="updateImage($event)" hidden>
+        </label>
+      </div>
+      <h3 (click)="editField('userName')">{{ userName }}</h3>
+      <div class="info">
+        <p (click)="editField('userEmail')"><i class='bx bx-envelope'></i> {{ userEmail }}</p>
+        <p (click)="editField('userPhone')"><i class='bx bx-phone'></i> {{ userPhone }}</p>
+        <p><i class='bx bx-flag'></i> India</p>
+      </div>
+    </div>
+  </div>

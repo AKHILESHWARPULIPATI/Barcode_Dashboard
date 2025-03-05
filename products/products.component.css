@@ -1,0 +1,253 @@
+.form-container {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+.header {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.header p {
+    margin: 0;
+    padding: 8px 15px;
+    position: relative;
+    cursor: pointer;
+    color: #848484 !important;
+}
+
+.header p:not(:last-child)::after {
+    margin-left: 8px;
+    color: #929292;
+}
+
+.header p:last-child {
+    font-weight: 500;
+    color: #007bff !important;
+}
+h2 {
+    margin-bottom: 25px;
+    font-size: 18px !important;
+    font-weight: 600;
+    color: #333;
+}
+
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    
+}
+
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 100%;
+    background: white;
+}
+
+.form-title{
+    align-self: flex-start !important;
+}
+ h3 {
+    text-align: start !important;
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.form-group-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 850px !important;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px !important;
+}
+
+
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+    background: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+
+input[type="color"] {
+    border: none;
+    width: 132px !important;
+    height: 36px;
+    cursor: pointer;
+}
+
+
+button[type="submit"] {
+    display: block;
+    margin-left: auto;
+    min-width: 160px;
+    padding: 12px 22px;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+
+button[type="submit"]:hover {
+    background: linear-gradient(45deg, #0056b3, #003d80);
+    transform: scale(1.05);
+}
+
+input[type="color"] {
+    border: none;
+    width: 132px !important;
+    height: 35px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+button[type="submit"]:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.spec-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.spec-table thead td {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: center;
+}
+
+.serial-number {
+    text-align: center;
+    width: 5%;
+}
+
+.action-icons {
+    text-align: center;
+    width: 10%;
+}
+
+.spec-table input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.bx {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.bx-plus-circle {
+    color: green;
+}
+
+.bx-trash {
+    color: red;
+}
+
+.image-preview {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.image-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.image-container i {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+}

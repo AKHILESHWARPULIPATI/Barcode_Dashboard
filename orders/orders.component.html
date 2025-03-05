@@ -1,0 +1,76 @@
+<div class="main-conatiner">
+    <div class="header">
+      <p>Order's Transcations</p>
+    </div>
+    <div class="content">
+        <div class="order-info">
+            <div class="form-group-container">
+                <div class="form-group">
+                    <label for="machineId">Order ID</label>
+                    <input type="text" id="machineId" formControlName="machineId" readonly placeholder="Search">
+                </div>
+            
+                <div class="form-group">
+                    <label for="fromDate">Datetime From</label>
+                    <input type="datetime-local" id="fromDate" formControlName="fromDate" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="toDate">Datetime To</label>
+                    <input type="datetime-local" id="toDate" formControlName="toDate" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" formControlName="status" required>
+                        <option value="all">All</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+            
+                <div class="form-group">
+                    <label for="sortCategory">Sort by Category</label>
+                    <select id="sortCategory" formControlName="sortCategory">
+                        <option value="category1">All</option>
+                        <option value="category1">Category 1</option>
+                        <option value="category2">Category 2</option>
+                        <option value="category3">Category 3</option>
+                    </select>
+                </div>
+            
+                <div class="form-group">
+                    <label for="paymentMethod">Sort by Payment Method</label>
+                    <select id="paymentMethod" formControlName="paymentMethod">
+                        <option value="upi">All</option>
+                        <option value="upi">UPI</option>
+                        <option value="cash">Cash</option>
+                        <option value="card">Card</option>
+                    </select>
+                </div>
+            </div>
+            
+        </div>
+        <div class="order-list">
+           <div class="table-container">
+            <table>
+                <thead>
+                  <tr>
+                    <th>S.No</th>
+                    
+                    <th>Time Stamp</th>
+                    <th>Machine ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Stock</th>
+                    <th>Amount</th>
+                    <th>Items</th>
+                    <th>Payment</th>
+                  </tr>
+                </thead>
+            </table>
+           </div>
+        </div>
+    </div>
+</div>

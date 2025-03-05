@@ -1,0 +1,44 @@
+<div class="product-list">
+ 
+  <table>
+    <thead>
+      <tr>
+        <th>S.No</th>
+        
+        <th>Image</th>
+        <th>Name</th>
+        <th>Machine ID</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Material</th>
+        <th>Durability</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>
+          <div class="image-container">
+            <img *ngIf="product.images.length" [src]="product.images[0]" width="50" height="50" alt="Product Image">
+            <span *ngIf="product.images.length > 1" class="hover-text" [title]="'+' + (product.images.length - 1) + ' more images'">...</span>
+          </div>
+        </td>
+        <td class="hover-text" [title]="product.name">{{ product.name }}</td>
+        <td class="hover-text" [title]="product.machineId">{{ product.machineId }}</td>
+        <td class="hover-text" [title]="product.category">{{ product.category }}</td>
+        <td class="hover-text" [title]="product.price | currency">{{ product.price | currency }}</td>
+        <td class="hover-text" [title]="product.stock">{{ product.stock }}</td>
+        <td class="hover-text" [title]="product.material">{{ product.material }}</td>
+        <td class="hover-text" [title]="product.durability">{{ product.durability }}</td>
+        <!-- <td>
+          <ul *ngIf="product.specifications?.length" class="spec-list">
+            <li *ngFor="let spec of product.specifications">{{ spec.key }}: {{ spec.value }}</li>
+          </ul>
+        </td> -->
+      <td title="info" routerLink="/product-details"><i class='bx bx-info-circle'></i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
